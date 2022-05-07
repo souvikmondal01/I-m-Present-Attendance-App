@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.129" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable-xxxhdpi/custom_lockl.xml" value="0.129" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable-xxxhdpi/ic_email_focused.xml" value="0.129" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable-xxxhdpi/ic_lock_focused.xml" value="0.129" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable/btn_style.xml" value="0.129" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable/check_attendance_list.xml" value="0.13" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable/custom_email.xml" value="0.129" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable/dialog_inset.xml" value="0.129" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable/dialog_style.xml" value="0.129" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable/et_style.xml" value="0.1685" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable/et_style2.xml" value="0.129" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable/ic_cancel.xml" value="0.137" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable/ic_email.xml" value="0.137" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable/ic_lock.xml" value="0.137" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable/ic_visibility.xml" value="0.129" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable/ic_visibility_off.xml" value="0.129" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable/iv.xml" value="0.1105" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable/list_style.xml" value="0.129" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable/logout_btn_style.xml" value="0.129" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable/logout_student_btn_style.xml" value="0.129" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable/profile_card_style.xml" value="0.184" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable/shape.xml" value="0.1105" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable/submit_btn_style.xml" value="0.129" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/drawable/view_style.xml" value="0.184" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/font/bigshot_one.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/layout-land/activity_student_dash_board.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/layout-v23/activity_student_login.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/layout/activity_attendance_list.xml" value="0.3756967670011148" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/layout/activity_check_attendance.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/layout/activity_create_post.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/layout/activity_profile.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/layout/activity_student_dash_board.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/layout/activity_student_login.xml" value="0.4002375296912114" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/layout/activity_student_register.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/layout/activity_take_attendance.xml" value="0.39323220536756126" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/layout/activity_teacher_dash_board.xml" value="0.20462633451957296" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/layout/activity_teacher_give_attendance.xml" value="0.22" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/layout/activity_teacher_login.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/layout/fragment_first_screen.xml" value="0.1" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/layout/fragment_student_login.xml" value="0.15806159420289856" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/layout/list_item.xml" value="0.22" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/layout/profile_layout.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/layout/student_attendance_list.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/layout/student_list_item.xml" value="1.0" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/layout/teacher_profile_layout.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.129" />
+        <entry key="..\:/Users/SOUVIK MANDAL/AndroidStudioProjects/Attendance/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.129" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
