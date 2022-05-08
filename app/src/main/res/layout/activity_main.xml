@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/purple_10"
+        android:background="@color/purple_800"
         tools:context=".MainActivity">
 
         <ImageView

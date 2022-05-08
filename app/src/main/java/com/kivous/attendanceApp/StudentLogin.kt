@@ -18,7 +18,7 @@ class StudentLogin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student_login)
-        window.statusBarColor = ContextCompat.getColor(this, R.color.purple_10)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.purple_800)
 
         val ivBackArrow: ImageView = findViewById(R.id.iv_back_arrow)
         val ivWhiteBackground: ImageView = findViewById(R.id.iv_white_background)

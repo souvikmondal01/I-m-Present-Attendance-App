@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_10"
+    android:background="@color/purple_800"
     android:fillViewport="true"
     tools:context=".StudentLogin">
 
@@ -63,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/logo_teal"
-            android:backgroundTint="@color/purple_100"
+            android:backgroundTint="@color/purple_800"
             app:layout_constraintBottom_toBottomOf="@id/iv_student"
             app:layout_constraintEnd_toEndOf="@id/iv_student"
             app:layout_constraintStart_toStartOf="@id/iv_student"
