@@ -1,27 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_400">#71E0CB</color>
-    <color name="teal_200">#4db6ac</color>
-    <color name="teal_100">#82e9de</color>
-    <color name="teal_80">#80DEEA</color>
-    <!--    <color name="teal_700">#397777</color>-->
-    <color name="teal_700">#00867d</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="grey_71">#717171</color>
-    <color name="grey_51">#515151</color>
-    <color name="green_700">#068D9D</color>
-    <color name="black_200">#020A12</color>
-    <color name="purple_400">#53599A</color>
-    <color name="purple_10">#ccdbfd</color>
-    <color name="purple_40">#abc4ff</color>
-    <color name="purple_100">#b6ccfe</color>
-    <color name="purple_5">#e2eafc</color>
     <color name="purple_800">#53599A</color>
+    <color name="purple_5">#e2eafc</color>
+    <color name="black">#FF000000</color>
+    <color name="purple_10">#ccdbfd</color>
     <color name="blue">#1886F7</color>
-
+    <color name="grey_51">#515151</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="purple_100">#b6ccfe</color>
+    <color name="list_color">#edf2fb</color>
 
 </resources>

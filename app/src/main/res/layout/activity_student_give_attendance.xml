@@ -5,7 +5,7 @@
     android:id="@+id/swipeLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".TeacherTakeAttendanceActivity">
+    tools:context=".StudentGiveAttendanceActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/nunito_medium"
-                android:text="@string/take_attendance"
+                android:text="@string/give_attendance"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_close"
@@ -147,6 +147,43 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxStrokeColor="@color/tf_give_attendance_style"
+                app:boxStrokeWidth="1.6dp"
+                app:hintTextColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tf_name">
+
+                <AutoCompleteTextView
+                    android:id="@+id/tf_branch"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/black"
+                    android:focusable="false"
+                    android:fontFamily="@font/nunito_light"
+                    android:hint="@string/branch_small"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="2dp"
+                    android:scrollHorizontally="true"
+                    android:textColorHighlight="@color/black"
+                    android:textCursorDrawable="@null"
+                    app:hintTextColor="@color/black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_subject"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 app:boxCornerRadiusBottomEnd="8dp"
                 app:boxCornerRadiusBottomStart="8dp"
@@ -157,45 +194,7 @@
                 app:hintTextColor="@color/black"
                 app:layout_constraintEnd_toStartOf="@id/gl_v50"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tf_name">
-
-                <AutoCompleteTextView
-                    android:id="@+id/tf_branch"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:backgroundTint="@color/black"
-                    android:cursorVisible="false"
-                    android:focusable="false"
-                    android:fontFamily="@font/nunito_light"
-                    android:hint="@string/branch_small"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:padding="2dp"
-                    android:scrollHorizontally="true"
-                    android:textColorHighlight="@color/black"
-                    app:hintTextColor="@color/black" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_subject"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="24dp"
-                app:boxCornerRadiusBottomEnd="8dp"
-                app:boxCornerRadiusBottomStart="8dp"
-                app:boxCornerRadiusTopEnd="8dp"
-                app:boxCornerRadiusTopStart="8dp"
-                app:boxStrokeColor="@color/tf_give_attendance_style"
-                app:boxStrokeWidth="1.6dp"
-                app:hintTextColor="@color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/gl_v50"
-                app:layout_constraintTop_toBottomOf="@id/tf_name">
+                app:layout_constraintTop_toBottomOf="@id/til_branch">
 
                 <AutoCompleteTextView
                     android:id="@+id/tf_subject"
@@ -214,78 +213,28 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
-                android:id="@+id/btn_post"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="36dp"
-                android:background="@drawable/check_attendance_list"
-                android:fontFamily="@font/nunito_medium"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:text="@string/submit_small"
-                android:textAllCaps="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_branch"
-                app:layout_constraintVertical_bias=".0"
-                tools:ignore="UnusedAttribute" />
 
-            <Button
-                android:id="@+id/btn_see_attendance_list"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="36dp"
-                android:background="@drawable/check_attendance_list"
-                android:fontFamily="@font/nunito_medium"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:text="@string/see_attendance_list"
-                android:textAllCaps="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_post"
-                app:layout_constraintVertical_bias=".0"
-                tools:ignore="UnusedAttribute" />
-
-            <TextView
-                android:id="@+id/tv_code_still"
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_v70"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginBottom="4dp"
-                android:fontFamily="@font/nunito_medium"
-                android:text="@string/code_still"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@id/tf_code"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintVertical_bias=".0" />
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".7" />
 
-            <TextView
-                android:id="@+id/tv_code"
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_v50"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginBottom="4dp"
-                android:fontFamily="@font/nunito_medium"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@id/tf_code"
-                app:layout_constraintStart_toEndOf="@id/tv_code_still"
-                tools:text="1122" />
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".5" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tf_code"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="64dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="24dp"
                 android:hint="@string/code_small"
                 app:boxCornerRadiusBottomEnd="8dp"
@@ -296,8 +245,8 @@
                 app:boxStrokeWidth="1.6dp"
                 app:hintTextColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_see_attendance_list">
+                app:layout_constraintStart_toEndOf="@id/gl_v50"
+                app:layout_constraintTop_toBottomOf="@id/til_branch">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_code"
@@ -313,41 +262,30 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/btn_set"
+                android:id="@+id/btn_post"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginEnd="24dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginBottom="36dp"
                 android:background="@drawable/check_attendance_list"
                 android:fontFamily="@font/nunito_medium"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:text="@string/set"
+                android:text="@string/submit_small"
                 android:textAllCaps="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tf_code"
-                app:layout_constraintVertical_bias=".0"
+                app:layout_constraintVertical_bias="0"
                 tools:ignore="UnusedAttribute" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/gl_v50"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent=".5" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/gl_v70"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent=".7" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </ScrollView>
+
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 

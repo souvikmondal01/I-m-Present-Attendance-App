@@ -13,8 +13,9 @@
         tools:context=".MainActivity">
 
         <ImageView
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:layout_width="136dp"
+            android:layout_height="136dp"
+            android:contentDescription="@string/logo"
             android:src="@drawable/attendance_logo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

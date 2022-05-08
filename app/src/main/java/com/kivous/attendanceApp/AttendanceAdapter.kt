@@ -20,10 +20,9 @@ class AttendanceAdapter(options: FirestoreRecyclerOptions<Attendance>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AttendanceViewHolder {
-        val view = AttendanceViewHolder(
+        return AttendanceViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.student_list_item, parent, false)
         )
-        return view
     }
 
     @SuppressLint("SetTextI18n")

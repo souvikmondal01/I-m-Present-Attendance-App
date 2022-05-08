@@ -87,18 +87,18 @@ class ProfileActivity : AppCompatActivity() {
             finish()
         }
 
-        val branchOptions = arrayOf("CSE-AIML", "CSE-DS", "CSE-CS")
+        val branchOptions = resources.getStringArray(R.array.branch)
         val branchAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, branchOptions)
         tfBranch.setAdapter(branchAdapter)
 
-        val genderOptions = arrayOf("Male", "Female", "Others")
+        val genderOptions = resources.getStringArray(R.array.gender)
         val genderAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, genderOptions)
         tfGender.setAdapter(genderAdapter)
     }
 
     private fun logOut(token: SharedPreferences) {
         token.edit().putString("login_email", " ").apply()
-        startActivity(Intent(this, StudentLogin::class.java))
+        startActivity(Intent(this, LoginActivity::class.java))
         finishAffinity()
     }
 

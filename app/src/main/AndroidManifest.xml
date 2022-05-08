@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Attendance">
         <activity
-            android:name=".TakeAttendance"
+            android:name=".TeacherTakeAttendanceActivity"
             android:exported="false" />
         <activity
             android:name=".ProfileActivity"
@@ -22,28 +22,28 @@
             android:exported="false"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".CheckAttendance"
+            android:name=".StudentCheckAttendanceActivity"
             android:exported="false" />
         <activity
-            android:name=".TeacherDashBoard"
+            android:name=".TeacherDashboardActivity"
             android:exported="false"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".AttendanceList"
+            android:name=".TeacherAttendanceListActivity"
             android:exported="false" />
         <activity
-            android:name=".CreatePost"
+            android:name=".StudentGiveAttendanceActivity"
             android:exported="false" />
         <activity
-            android:name=".StudentDashBoard"
+            android:name=".StudentDashboardActivity"
             android:exported="false" />
         <activity
-            android:name=".StudentRegister"
+            android:name=".RegisterActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity android:name=".TeacherLogin" />
         <activity
-            android:name=".StudentLogin"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

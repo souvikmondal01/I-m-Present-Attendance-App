@@ -12,7 +12,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/purple_10"
         android:focusable="true"
         android:focusableInTouchMode="true">
 
@@ -21,10 +20,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:elevation="4dp"
             android:fontFamily="@font/nunito_bold"
             android:text="@string/profile"
-            android:textColor="@color/black_200"
+            android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +35,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/ic_arrow_back"
-            android:backgroundTint="@color/black_200"
+            android:backgroundTint="@color/black"
+            android:contentDescription="@string/back_arrow"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -80,9 +79,9 @@
                 app:boxCornerRadiusBottomStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
                 app:boxCornerRadiusTopStart="12dp"
-                app:boxStrokeColor="@color/tf_style"
+                app:boxStrokeColor="@color/tf_profile_style"
                 app:boxStrokeWidth="1.6dp"
-                app:hintTextColor="@color/black_200"
+                app:hintTextColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_personal_details">
 
@@ -95,8 +94,7 @@
                     android:maxLines="1"
                     android:padding="2dp"
                     android:scrollHorizontally="true"
-                    android:textCursorDrawable="@null"
-                     />
+                    android:textCursorDrawable="@null" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -113,9 +111,9 @@
                 app:boxCornerRadiusBottomStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
                 app:boxCornerRadiusTopStart="12dp"
-                app:boxStrokeColor="@color/tf_style"
+                app:boxStrokeColor="@color/tf_profile_style"
                 app:boxStrokeWidth="1.6dp"
-                app:hintTextColor="@color/black_200"
+                app:hintTextColor="@color/black"
                 app:layout_constraintEnd_toStartOf="@id/gl_v70"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tf_name">
@@ -129,8 +127,7 @@
                     android:maxLines="1"
                     android:padding="2dp"
                     android:scrollHorizontally="true"
-                    android:textCursorDrawable="@null"
-                    />
+                    android:textCursorDrawable="@null" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -147,9 +144,9 @@
                 app:boxCornerRadiusBottomStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
                 app:boxCornerRadiusTopStart="12dp"
-                app:boxStrokeColor="@color/tf_style"
+                app:boxStrokeColor="@color/tf_profile_style"
                 app:boxStrokeWidth="1.6dp"
-                app:hintTextColor="@color/black_200"
+                app:hintTextColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/gl_v70"
                 app:layout_constraintTop_toBottomOf="@id/tf_name">
@@ -163,8 +160,7 @@
                     android:maxLines="1"
                     android:padding="2dp"
                     android:scrollHorizontally="true"
-                    android:textCursorDrawable="@null"
-                     />
+                    android:textCursorDrawable="@null" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -181,9 +177,9 @@
                 app:boxCornerRadiusBottomStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
                 app:boxCornerRadiusTopStart="12dp"
-                app:boxStrokeColor="@color/tf_style"
+                app:boxStrokeColor="@color/tf_profile_style"
                 app:boxStrokeWidth="1.6dp"
-                app:hintTextColor="@color/black_200"
+                app:hintTextColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tf_roll">
@@ -192,14 +188,14 @@
                     android:id="@+id/tf_branch_hide"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:backgroundTint="@color/black_200"
+                    android:backgroundTint="@color/black"
                     android:cursorVisible="false"
                     android:fontFamily="@font/nunito_light"
                     android:hint="@string/branch_small"
                     android:inputType="text"
                     android:padding="2dp"
-                    android:textColorHighlight="@color/black_200"
-                    app:hintTextColor="@color/black_200" />
+                    android:textColorHighlight="@color/black"
+                    app:hintTextColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -216,9 +212,9 @@
                 app:boxCornerRadiusBottomStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
                 app:boxCornerRadiusTopStart="12dp"
-                app:boxStrokeColor="@color/tf_style"
+                app:boxStrokeColor="@color/tf_profile_style"
                 app:boxStrokeWidth="1.6dp"
-                app:hintTextColor="@color/black_200"
+                app:hintTextColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tf_roll">
@@ -227,15 +223,15 @@
                     android:id="@+id/tf_student_hide"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:backgroundTint="@color/black_200"
+                    android:backgroundTint="@color/black"
                     android:cursorVisible="false"
                     android:fontFamily="@font/nunito_light"
                     android:hint="@string/branch_small"
                     android:inputType="text"
                     android:padding="2dp"
-                    android:textColorHighlight="@color/black_200"
+                    android:textColorHighlight="@color/black"
                     android:textSize="12sp"
-                    app:hintTextColor="@color/black_200" />
+                    app:hintTextColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -251,9 +247,9 @@
                 app:boxCornerRadiusBottomStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
                 app:boxCornerRadiusTopStart="12dp"
-                app:boxStrokeColor="@color/tf_style"
+                app:boxStrokeColor="@color/tf_profile_style"
                 app:boxStrokeWidth="1.6dp"
-                app:hintTextColor="@color/black_200"
+                app:hintTextColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tf_roll">
@@ -262,14 +258,14 @@
                     android:id="@+id/tf_branch_profile"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:backgroundTint="@color/black_200"
+                    android:backgroundTint="@color/black"
                     android:cursorVisible="false"
                     android:fontFamily="@font/nunito_light"
                     android:hint="@string/branch_small"
                     android:inputType="text"
                     android:padding="2dp"
-                    android:textColorHighlight="@color/black_200"
-                    app:hintTextColor="@color/black_200" />
+                    android:textColorHighlight="@color/black"
+                    app:hintTextColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -285,9 +281,9 @@
                 app:boxCornerRadiusBottomStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
                 app:boxCornerRadiusTopStart="12dp"
-                app:boxStrokeColor="@color/tf_style"
+                app:boxStrokeColor="@color/tf_profile_style"
                 app:boxStrokeWidth="1.6dp"
-                app:hintTextColor="@color/black_200"
+                app:hintTextColor="@color/black"
                 app:layout_constraintEnd_toStartOf="@id/gl_v50"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/til_branch">
@@ -296,14 +292,14 @@
                     android:id="@+id/tf_gender_profile"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:backgroundTint="@color/black_200"
+                    android:backgroundTint="@color/black"
                     android:cursorVisible="false"
                     android:fontFamily="@font/nunito_light"
                     android:hint="@string/gender"
                     android:inputType="text"
                     android:padding="2dp"
-                    android:textColorHighlight="@color/black_200"
-                    app:hintTextColor="@color/black_200" />
+                    android:textColorHighlight="@color/black"
+                    app:hintTextColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -321,9 +317,9 @@
                 app:boxCornerRadiusBottomStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
                 app:boxCornerRadiusTopStart="12dp"
-                app:boxStrokeColor="@color/tf_style"
+                app:boxStrokeColor="@color/tf_profile_style"
                 app:boxStrokeWidth="1.6dp"
-                app:hintTextColor="@color/black_200"
+                app:hintTextColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/gl_v50"
                 app:layout_constraintTop_toBottomOf="@id/til_branch">
@@ -332,13 +328,12 @@
                     android:id="@+id/et_birth_day"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
+                    android:cursorVisible="false"
                     android:focusable="false"
                     android:fontFamily="@font/nunito_light"
                     android:maxLines="1"
                     android:padding="2dp"
-                    android:scrollHorizontally="true"
-                    android:textCursorDrawable="@null"
-                     />
+                    android:scrollHorizontally="true" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -356,9 +351,9 @@
                 app:boxCornerRadiusBottomStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
                 app:boxCornerRadiusTopStart="12dp"
-                app:boxStrokeColor="@color/tf_style"
+                app:boxStrokeColor="@color/tf_profile_style"
                 app:boxStrokeWidth="1.6dp"
-                app:hintTextColor="@color/black_200"
+                app:hintTextColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/til_gender">
 
@@ -372,8 +367,7 @@
                     android:maxLines="1"
                     android:padding="2dp"
                     android:scrollHorizontally="true"
-                    android:textCursorDrawable="@null"
-                     />
+                    android:textCursorDrawable="@null" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

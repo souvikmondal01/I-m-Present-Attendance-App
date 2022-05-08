@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/purple_10"
-    tools:context=".TeacherDashboardActivity">
+    tools:context=".StudentDashboardActivity">
 
     <TextView
         android:id="@+id/tv_dashboard"
@@ -45,21 +45,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/iv_take_attendance"
+        android:id="@+id/iv_give_attendance"
         android:layout_width="match_parent"
         android:layout_height="112dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="48dp"
         android:background="@drawable/profile_card_style"
-        android:contentDescription="@string/take_attendance"
+        android:contentDescription="@string/give_attendance"
         android:foreground="?android:attr/selectableItemBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_dashboard"
-        app:layout_constraintVertical_bias="0"
         tools:ignore="UnusedAttribute" />
 
     <ImageView
@@ -68,10 +65,10 @@
         android:layout_margin="16dp"
         android:background="@drawable/arrow"
         android:backgroundTint="@color/black"
-        android:contentDescription="@string/take_attendance"
+        android:contentDescription="@string/give_attendance"
         android:rotation="180"
-        app:layout_constraintBottom_toBottomOf="@id/iv_take_attendance"
-        app:layout_constraintEnd_toEndOf="@id/iv_take_attendance" />
+        app:layout_constraintBottom_toBottomOf="@id/iv_give_attendance"
+        app:layout_constraintEnd_toEndOf="@id/iv_give_attendance" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -79,14 +76,49 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/nunito_bold"
-        android:text="@string/take_attendance"
+        android:text="@string/give_attendance"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@id/iv_take_attendance"
-        app:layout_constraintTop_toTopOf="@id/iv_take_attendance" />
+        app:layout_constraintStart_toStartOf="@id/iv_give_attendance"
+        app:layout_constraintTop_toTopOf="@id/iv_give_attendance" />
+
+    <ImageView
+        android:id="@+id/iv_check_attendance"
+        android:layout_width="match_parent"
+        android:layout_height="112dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/profile_card_style"
+        android:contentDescription="@string/check_attendance"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_give_attendance"
+        app:layout_constraintVertical_bias="0"
+        tools:ignore="UnusedAttribute" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="@string/check_attendance"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/iv_check_attendance"
+        app:layout_constraintTop_toTopOf="@id/iv_check_attendance" />
+
+    <ImageView
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/arrow"
+        android:backgroundTint="@color/black"
+        android:contentDescription="@string/check_attendance"
+        android:rotation="180"
+        app:layout_constraintBottom_toBottomOf="@id/iv_check_attendance"
+        app:layout_constraintEnd_toEndOf="@id/iv_check_attendance" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-

@@ -1,27 +1,13 @@
 <resources>
     <string name="app_name">Present Sir</string>
-    <string name="teacher">Teacher</string>
-    <string name="student">Student</string>
-    <string name="welcome">Welcome!</string>
     <string name="nothing">Nothing</string>
     <string name="back_arrow">Back Arrow</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="password">Password</string>
-    <string name="email">Email</string>
     <string name="login">Login</string>
     <string name="don_t_have_an_account">Don\'t have an account?</string>
     <string name="register">Register</string>
     <string name="forgot_password">Forgot password?</string>
-    <string name="name">Name</string>
     <string name="university_roll">University Roll</string>
-    <string name="branch">Branch</string>
     <string name="already_have_an_account">Already have an account?</string>
-    <string name="date">Date</string>
-    <string name="roll">Roll</string>
-    <string name="submit">Submit</string>
-    <string name="code">Code</string>
-    <string name="subject">Subject</string>
     <string name="check_attendance">Check Attendance</string>
     <string name="give_attendance">Give Attendance</string>
     <string name="profile">profile</string>
@@ -48,4 +34,27 @@
     <string name="login_small">login</string>
     <string name="password_small">password</string>
     <string name="register_small">register</string>
+    <string name="logo">Logo</string>
+    <string name="account_logo">Account Logo</string>
+    <string name="code_still">code:</string>
+
+    <string-array name="branch">
+        <item>CSE-AIML</item>
+        <item>CSE-DS</item>
+        <item>CSE-CS</item>
+    </string-array>
+
+    <string-array name="subject">
+        <item>Java</item>
+        <item>Java Lab</item>
+        <item>DAA</item>
+        <item>DAA Lab</item>
+    </string-array>
+
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Others</item>
+    </string-array>
+
 </resources>
