@@ -22,13 +22,13 @@ class StudentLogin : AppCompatActivity() {
 
         val ivBackArrow: ImageView = findViewById(R.id.iv_back_arrow)
         val ivWhiteBackground: ImageView = findViewById(R.id.iv_white_background)
-        val tvForgotPassword: TextView = findViewById(R.id.tv_forgot_password)
         val tvRegister: TextView = findViewById(R.id.tv_Register)
         val btnLogin: Button = findViewById(R.id.btn_login)
         val etEmail: EditText = findViewById(R.id.et_email)
         val etPassword: EditText = findViewById(R.id.et_password)
         val pbLogin: ProgressBar = findViewById(R.id.pb_login)
         val ivEye: ImageView = findViewById(R.id.iv_eye)
+        val forgotPass: TextView = findViewById(R.id.tv_forgot_password)
 
         auth = FirebaseAuth.getInstance()
         val token = getSharedPreferences("username", Context.MODE_PRIVATE)
@@ -39,9 +39,7 @@ class StudentLogin : AppCompatActivity() {
         ivWhiteBackground.setOnClickListener {
             closeKeyBoard()
         }
-        tvForgotPassword.setOnClickListener {
-            Toast.makeText(this, "Coming Soon...", Toast.LENGTH_SHORT).show()
-        }
+
         tvRegister.setOnClickListener {
             val intent = Intent(this, StudentRegister::class.java)
             startActivity(intent)
@@ -61,44 +59,79 @@ class StudentLogin : AppCompatActivity() {
                     auth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
-                                auth = FirebaseAuth.getInstance()
-                                val currentUser = auth.currentUser!!.uid
-                                pbLogin.visibility = View.GONE
+                                if (auth.currentUser!!.isEmailVerified) {
+                                    auth = FirebaseAuth.getInstance()
+                                    val currentUser = auth.currentUser!!.uid
+                                    pbLogin.visibility = View.GONE
 
-                                db.collection("users").document(currentUser).get()
-                                    .addOnSuccessListener { t ->
-                                        val c = t.getString("student")
-                                        if (c == "1") {
-                                            val intent = Intent(this, StudentDashBoard::class.java)
-                                            startActivity(intent)
-                                            val editor = token.edit()
-                                            editor.putString("login_email", currentUser)
-                                            editor.apply()
-                                            finishAffinity()
+                                    db.collection("users").document(currentUser).get()
+                                        .addOnSuccessListener { t ->
+                                            val c = t.getString("student")
+                                            if (c == "1") {
+                                                val intent =
+                                                    Intent(this, StudentDashBoard::class.java)
+                                                startActivity(intent)
+                                                val editor = token.edit()
+                                                editor.putString("login_email", currentUser)
+                                                editor.apply()
+                                                finishAffinity()
 
-                                        } else if (c == "0") {
-                                            val intent = Intent(this, TeacherDashBoard::class.java)
-                                            startActivity(intent)
-                                            val editor = token.edit()
-                                            editor.putString("login_email", currentUser)
-                                            editor.apply()
-                                            finishAffinity()
-                                        } else {
-                                            val intent = Intent(this, MainActivity::class.java)
-                                            startActivity(intent)
-                                            finishAffinity()
+                                            } else if (c == "0") {
+                                                val intent =
+                                                    Intent(this, TeacherDashBoard::class.java)
+                                                startActivity(intent)
+                                                val editor = token.edit()
+                                                editor.putString("login_email", currentUser)
+                                                editor.apply()
+                                                finishAffinity()
+                                            } else {
+                                                val intent = Intent(this, MainActivity::class.java)
+                                                startActivity(intent)
+                                                finishAffinity()
+                                            }
                                         }
-                                    }
+                                } else {
+                                    pbLogin.visibility = View.GONE
+                                    Toast.makeText(
+                                        this,
+                                        "Please verify your email address",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+
                             } else {
                                 pbLogin.visibility = View.GONE
                                 Toast.makeText(
-                                    this, "Authentication failed.",
+                                    this, task.exception!!.message,
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
                         }
 
                 }
+            }
+
+        }
+        forgotPass.setOnClickListener {
+            pbLogin.visibility = View.VISIBLE
+            if (etEmail.text.isNotEmpty()) {
+                auth.sendPasswordResetEmail(etEmail.text.toString()).addOnCompleteListener { t ->
+                    if (t.isSuccessful) {
+                        pbLogin.visibility = View.GONE
+                        Toast.makeText(
+                            this,
+                            "Check your email to reset your password!",
+                            Toast.LENGTH_LONG
+                        )
+                            .show()
+                    } else {
+                        pbLogin.visibility = View.GONE
+                        Toast.makeText(this, t.exception!!.message, Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } else {
+                pbLogin.visibility = View.GONE
+                etEmail.error = "enter email"
             }
 
         }

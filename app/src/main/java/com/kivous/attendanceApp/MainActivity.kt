@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     //    Function for maintain session (if already logged in then directly open dashBoard activity)
     private fun maintainSession() {
         val token = getSharedPreferences("username", Context.MODE_PRIVATE)
-        if (token.getString("login_email", " ") != " ") {
+        if (token.getString("login_email", " ") != " " ) {
 
             db.collection("users").document(token.getString("login_email", "").toString()).get()
                 .addOnSuccessListener { t ->

@@ -30,7 +30,7 @@ class StudentRegister : AppCompatActivity() {
         val pbRegister: ProgressBar = findViewById(R.id.pb_register)
         val ivEye: ImageView = findViewById(R.id.iv_eye)
 
-        val token = getSharedPreferences("username", Context.MODE_PRIVATE)
+//        val token = getSharedPreferences("username", Context.MODE_PRIVATE)
 
         ivBackArrow.setOnClickListener {
             finish()
@@ -95,59 +95,88 @@ class StudentRegister : AppCompatActivity() {
                     )
 
                     val users = db.collection("users")
-                    users.whereEqualTo("email", email).get().addOnSuccessListener { e ->
-                        if (e.isEmpty) {
-                            auth.createUserWithEmailAndPassword(email, password)
-                                .addOnCompleteListener(this) { task ->
-                                    if (task.isSuccessful) {
-                                        val currentUser = auth.currentUser!!.uid
-                                        pbRegister.visibility = View.GONE
-                                        if (etRoll.text.toString() == "hitteacher") {
-                                            users.document(currentUser).set(user2)
-                                            Toast.makeText(
-                                                this,
-                                                "You are registered",
-                                                Toast.LENGTH_SHORT
-                                            )
-                                                .show()
-                                            val intent = Intent(this, TeacherDashBoard::class.java)
-                                            startActivity(intent)
-                                        } else {
-                                            users.document(currentUser).set(user)
-                                            Toast.makeText(
-                                                this,
-                                                "You are registered",
-                                                Toast.LENGTH_SHORT
-                                            )
-                                                .show()
-                                            val intent = Intent(this, StudentDashBoard::class.java)
-                                            startActivity(intent)
-                                        }
-                                        val editor = token.edit()
-                                        editor.putString("login_email", currentUser)
-                                        editor.apply()
-                                        finishAffinity()
-                                    } else {
-                                        pbRegister.visibility = View.GONE
-                                        Toast.makeText(
-                                            this, "Authentication failed.",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                    }
-                                }
 
-                        } else {
-                            Toast.makeText(this, "You are already registered", Toast.LENGTH_SHORT)
-                                .show()
-                            val intent = Intent(this, StudentLogin::class.java)
-                            startActivity(intent)
+
+//                    users.whereEqualTo("email", email).get().addOnSuccessListener { e ->
+//                        if (e.isEmpty) {
+                    auth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(this) { task ->
+                            if (task.isSuccessful) {
+                                auth.currentUser!!.sendEmailVerification()
+                                    .addOnCompleteListener { task2 ->
+                                        if (task2.isSuccessful) {
+                                            val currentUser = auth.currentUser!!.uid
+                                            pbRegister.visibility = View.GONE
+                                            if (etRoll.text.toString() == "hitteacher") {
+                                                users.document(currentUser).set(user2)
+                                                Toast.makeText(
+                                                    this,
+                                                    "Registered successfully. Please check your email for verification",
+                                                    Toast.LENGTH_LONG
+                                                )
+                                                    .show()
+                                                val intent =
+                                                    Intent(
+                                                        this,
+                                                        StudentLogin::class.java
+                                                    )
+                                                startActivity(intent)
+                                            } else {
+                                                users.document(currentUser).set(user)
+                                                Toast.makeText(
+                                                    this,
+                                                    "Registered successfully. Please check your email for verification",
+                                                    Toast.LENGTH_LONG
+                                                )
+                                                    .show()
+                                                val intent =
+                                                    Intent(
+                                                        this,
+                                                        StudentLogin::class.java
+                                                    )
+                                                startActivity(intent)
+                                            }
+//                                                val editor = token.edit()
+//                                                editor.putString("login_email", currentUser)
+//                                                editor.apply()
+                                            finishAffinity()
+                                        } else {
+                                            Toast.makeText(
+                                                this,
+                                                task2.exception!!.message,
+                                                Toast.LENGTH_SHORT
+                                            )
+                                                .show()
+                                        }
+
+
+                                    }
+
+                            } else {
+                                pbRegister.visibility = View.GONE
+                                Toast.makeText(
+                                    this, task.exception!!.message,
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
                         }
-                    }
+
+//                        }
+//                        else {
+//                            Toast.makeText(this, "You are already registered", Toast.LENGTH_SHORT)
+//                                .show()
+//                            val intent = Intent(this, StudentLogin::class.java)
+//                            startActivity(intent)
+//                        }
+//                    }
 
                 }
             }
 
         }
+
+
+
         ivEye.setOnClickListener {
             isShowPass = !isShowPass
             showPassword(isShowPass, etPassword, ivEye)
