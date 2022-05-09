@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
+    private var isShowPass = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -67,12 +68,18 @@ class LoginActivity : AppCompatActivity() {
                                             when (t.getString("student")) {
                                                 "1" -> {
                                                     val intent =
-                                                        Intent(this, StudentDashboardActivity::class.java)
+                                                        Intent(
+                                                            this,
+                                                            StudentDashboardActivity::class.java
+                                                        )
                                                     startActivity(intent)
                                                 }
                                                 "0" -> {
                                                     val intent =
-                                                        Intent(this, TeacherDashboardActivity::class.java)
+                                                        Intent(
+                                                            this,
+                                                            TeacherDashboardActivity::class.java
+                                                        )
                                                     startActivity(intent)
                                                 }
                                                 else -> {

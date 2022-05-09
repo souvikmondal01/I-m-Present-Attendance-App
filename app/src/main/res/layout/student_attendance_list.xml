@@ -11,13 +11,18 @@
 
     <TextView
         android:id="@+id/tv_name_card"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/nunito_light"
         android:textColor="@color/black"
         android:textSize="18sp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintEnd_toStartOf="@id/tv_subject"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Souvik Mondal" />

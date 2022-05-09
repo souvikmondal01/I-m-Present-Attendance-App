@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.Query
 import com.kivous.attendanceApp.models.Attendance
@@ -17,10 +18,18 @@ class TeacherAttendanceListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_teacher_attendance_list)
         window.statusBarColor = ContextCompat.getColor(this, R.color.purple_10)
         val ivClose: ImageView = findViewById(R.id.iv_close)
+        val swipeLayout: SwipeRefreshLayout = findViewById(R.id.swipeLayout)
+
         val cl = intent.getStringExtra("collection").toString()
         setUpRecycleView(cl)
         ivClose.setOnClickListener {
             finish()
+        }
+
+        swipeLayout.setOnRefreshListener {
+            setUpRecycleView(cl)
+            adapter.startListening()
+            swipeLayout.isRefreshing = false
         }
 
     }

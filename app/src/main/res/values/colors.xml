@@ -7,7 +7,8 @@
     <color name="blue">#1886F7</color>
     <color name="grey_51">#515151</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="purple_100">#b6ccfe</color>
+    <color name="purple_100">#53599A</color>
+    <color name="purple_50">#b6ccfe</color>
     <color name="list_color">#edf2fb</color>
 
 </resources>

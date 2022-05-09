@@ -16,7 +16,6 @@ lateinit var auth: FirebaseAuth
 
 @SuppressLint("StaticFieldLeak")
 val db = Firebase.firestore
-var isShowPass = false
 
 class MainActivity : AppCompatActivity() {
 

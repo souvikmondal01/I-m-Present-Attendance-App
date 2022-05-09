@@ -25,13 +25,18 @@
 
     <TextView
         android:id="@+id/tv_student_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
         android:fontFamily="@font/nunito_medium"
+        android:maxLines="1"
         android:textColor="@color/grey_51"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/gl"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@id/tv_serial"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Souvik Mondal" />
@@ -50,7 +55,7 @@
 
     <TextView
         android:id="@+id/tv_student_roll"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:fontFamily="@font/nunito_medium"
@@ -60,6 +65,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="54" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".8" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
