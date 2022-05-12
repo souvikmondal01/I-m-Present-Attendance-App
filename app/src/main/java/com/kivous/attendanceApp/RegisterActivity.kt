@@ -17,8 +17,10 @@ class RegisterActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.purple_800)
 
         val ivBackArrow: ImageView = findViewById(R.id.iv_back_arrow)
+        val vBackArrow: View = findViewById(R.id.v_back_arrow)
         val ivWhiteBackground: ImageView = findViewById(R.id.iv_white_background)
         val tvLogin: TextView = findViewById(R.id.tv_login)
+        val vLogin: View = findViewById(R.id.v_login)
         val btnStudentRegister: Button = findViewById(R.id.btn_student_register)
         val etEmail: EditText = findViewById(R.id.et_email)
         val etName: EditText = findViewById(R.id.et_name)
@@ -31,9 +33,17 @@ class RegisterActivity : AppCompatActivity() {
         ivBackArrow.setOnClickListener {
             finish()
         }
+        vBackArrow.setOnClickListener {
+            finish()
+        }
+
         tvLogin.setOnClickListener {
             finish()
         }
+        vLogin.setOnClickListener {
+            finish()
+        }
+
         ivWhiteBackground.setOnClickListener {
             closeKeyBoard()
         }

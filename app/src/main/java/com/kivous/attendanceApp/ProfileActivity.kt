@@ -19,7 +19,9 @@ class ProfileActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.purple_10)
 
         val back: ImageView = findViewById(R.id.iv_back)
+        val vBack: View = findViewById(R.id.v_back)
         val logOut: TextView = findViewById(R.id.tv_logout)
+        val vLogOut: View = findViewById(R.id.v_logout)
         val tfBranch: AutoCompleteTextView = findViewById(R.id.tf_branch_profile)
         val tfGender: AutoCompleteTextView = findViewById(R.id.tf_gender_profile)
         val dob: EditText = findViewById(R.id.et_birth_day)
@@ -28,6 +30,7 @@ class ProfileActivity : AppCompatActivity() {
         val roll: EditText = findViewById(R.id.et_roll)
         val email: EditText = findViewById(R.id.et_email)
         val update: TextView = findViewById(R.id.tv_update)
+        val vUpdate: View = findViewById(R.id.v_update)
         val pb: ProgressBar = findViewById(R.id.pb_profile)
         val branchHide: AutoCompleteTextView = findViewById(R.id.tf_branch_hide)
         val studentHide: AutoCompleteTextView = findViewById(R.id.tf_student_hide)
@@ -38,7 +41,7 @@ class ProfileActivity : AppCompatActivity() {
         dob.setOnClickListener {
             datePicker(dob)
         }
-        update.setOnClickListener {
+        vUpdate.setOnClickListener {
             pb.visibility = View.VISIBLE
             val name2 = name.text.toString().trim()
             val uniroll2 = uniroll.text.toString().trim()
@@ -82,8 +85,14 @@ class ProfileActivity : AppCompatActivity() {
         logOut.setOnClickListener {
             logOut(token)
         }
+        vLogOut.setOnClickListener {
+            logOut(token)
+        }
 
         back.setOnClickListener {
+            finish()
+        }
+        vBack.setOnClickListener {
             finish()
         }
 

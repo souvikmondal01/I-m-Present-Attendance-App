@@ -20,8 +20,10 @@ class LoginActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.purple_800)
 
         val ivBackArrow: ImageView = findViewById(R.id.iv_back_arrow)
+        val vBackArrow: View = findViewById(R.id.v_back_arrow)
         val ivWhiteBackground: ImageView = findViewById(R.id.iv_white_background)
         val tvRegister: TextView = findViewById(R.id.tv_Register)
+        val vRegister: View = findViewById(R.id.v_register)
         val btnLogin: Button = findViewById(R.id.btn_login)
         val etEmail: EditText = findViewById(R.id.et_email)
         val etPassword: EditText = findViewById(R.id.et_password)
@@ -32,9 +34,14 @@ class LoginActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         val token = getSharedPreferences("username", Context.MODE_PRIVATE)
 
+        vBackArrow.setOnClickListener {
+            finish()
+        }
+
         ivBackArrow.setOnClickListener {
             finish()
         }
+
         ivWhiteBackground.setOnClickListener {
             closeKeyBoard()
         }
@@ -43,6 +50,11 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
+        vRegister.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
+
         btnLogin.setOnClickListener {
             when {
                 etEmail.text.isEmpty() -> {

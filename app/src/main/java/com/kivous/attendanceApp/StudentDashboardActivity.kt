@@ -2,6 +2,7 @@ package com.kivous.attendanceApp
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -16,16 +17,25 @@ class StudentDashboardActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         val ivAccount: ImageView = findViewById(R.id.iv_account)
+        val vAccount: View = findViewById(R.id.v_account)
         val ivGiveAttendance: ImageView = findViewById(R.id.iv_give_attendance)
         val ivCheckAttendance: ImageView = findViewById(R.id.iv_check_attendance)
         val back: ImageView = findViewById(R.id.iv_back)
+        val vBack: View = findViewById(R.id.v_back)
 
         back.setOnClickListener {
+            finish()
+        }
+        vBack.setOnClickListener {
             finish()
         }
         ivAccount.setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
+        vAccount.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
+
         ivGiveAttendance.setOnClickListener {
             startActivity(Intent(this, StudentGiveAttendanceActivity::class.java))
         }
