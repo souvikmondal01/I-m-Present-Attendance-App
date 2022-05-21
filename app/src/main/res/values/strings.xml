@@ -38,23 +38,4 @@
     <string name="account_logo">Account Logo</string>
     <string name="code_still">code:</string>
 
-    <string-array name="branch">
-        <item>CSE-AIML</item>
-        <item>CSE-DS</item>
-        <item>CSE-CS</item>
-    </string-array>
-
-    <string-array name="subject">
-        <item>Java</item>
-        <item>Java Lab</item>
-        <item>DAA</item>
-        <item>DAA Lab</item>
-    </string-array>
-
-    <string-array name="gender">
-        <item>Male</item>
-        <item>Female</item>
-        <item>Others</item>
-    </string-array>
-
 </resources>

@@ -421,7 +421,7 @@
                 app:layout_constraintGuide_percent=".5" />
 
             <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/gl_v30"
+                android:id="@+id/gl_v33"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -433,7 +433,7 @@
                 android:layout_height="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/gl_v70"
-                app:layout_constraintStart_toStartOf="@id/gl_v30" />
+                app:layout_constraintStart_toStartOf="@id/gl_v33" />
 
             <View
                 android:id="@+id/v_update"

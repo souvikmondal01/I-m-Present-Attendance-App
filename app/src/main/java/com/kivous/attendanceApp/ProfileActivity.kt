@@ -1,12 +1,16 @@
 package com.kivous.attendanceApp
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
-import android.widget.*
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
+import android.widget.EditText
+import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
@@ -18,9 +22,7 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profile)
         window.statusBarColor = ContextCompat.getColor(this, R.color.purple_10)
 
-        val back: ImageView = findViewById(R.id.iv_back)
         val vBack: View = findViewById(R.id.v_back)
-        val logOut: TextView = findViewById(R.id.tv_logout)
         val vLogOut: View = findViewById(R.id.v_logout)
         val tfBranch: AutoCompleteTextView = findViewById(R.id.tf_branch_profile)
         val tfGender: AutoCompleteTextView = findViewById(R.id.tf_gender_profile)
@@ -29,7 +31,6 @@ class ProfileActivity : AppCompatActivity() {
         val uniroll: EditText = findViewById(R.id.et_uniroll)
         val roll: EditText = findViewById(R.id.et_roll)
         val email: EditText = findViewById(R.id.et_email)
-        val update: TextView = findViewById(R.id.tv_update)
         val vUpdate: View = findViewById(R.id.v_update)
         val pb: ProgressBar = findViewById(R.id.pb_profile)
         val branchHide: AutoCompleteTextView = findViewById(R.id.tf_branch_hide)
@@ -38,6 +39,9 @@ class ProfileActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser!!.uid
 
+        vBack.setOnClickListener {
+            finish()
+        }
         dob.setOnClickListener {
             datePicker(dob)
         }
@@ -81,28 +85,23 @@ class ProfileActivity : AppCompatActivity() {
             studentHide.setText(tasks.get("student").toString())
         }
 
+        db.collection("extra_info")
+            .document("array").get()
+            .addOnSuccessListener { t ->
+                val branchOptions: ArrayList<String> = t.get("branch") as ArrayList<String>
+                val branchAdapter =
+                    ArrayAdapter(this, android.R.layout.simple_list_item_1, branchOptions)
+                tfBranch.setAdapter(branchAdapter)
+                val genderOptions: ArrayList<String> = t.get("gender") as ArrayList<String>
+                val genderAdapter =
+                    ArrayAdapter(this, android.R.layout.simple_list_item_1, genderOptions)
+                tfGender.setAdapter(genderAdapter)
+            }
+
         val token = getSharedPreferences("username", Context.MODE_PRIVATE)
-        logOut.setOnClickListener {
-            logOut(token)
-        }
         vLogOut.setOnClickListener {
             logOut(token)
         }
-
-        back.setOnClickListener {
-            finish()
-        }
-        vBack.setOnClickListener {
-            finish()
-        }
-
-        val branchOptions = resources.getStringArray(R.array.branch)
-        val branchAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, branchOptions)
-        tfBranch.setAdapter(branchAdapter)
-
-        val genderOptions = resources.getStringArray(R.array.gender)
-        val genderAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, genderOptions)
-        tfGender.setAdapter(genderAdapter)
     }
 
     private fun logOut(token: SharedPreferences) {
@@ -112,6 +111,7 @@ class ProfileActivity : AppCompatActivity() {
     }
 
 
+    @SuppressLint("SetTextI18n")
     private fun datePicker(dateSet: EditText) {
 
         val cal = Calendar.getInstance()

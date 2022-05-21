@@ -220,7 +220,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="36dp"
                 android:background="@drawable/check_attendance_list"
@@ -240,7 +240,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="36dp"
                 android:background="@drawable/check_attendance_list"
@@ -269,13 +269,16 @@
 
             <TextView
                 android:id="@+id/tv_code"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginBottom="4dp"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:fontFamily="@font/nunito_medium"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@id/tf_code"
+                app:layout_constraintEnd_toEndOf="@id/tf_code"
                 app:layout_constraintStart_toEndOf="@id/tv_code_still"
                 tools:text="1122" />
 
@@ -285,8 +288,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="64dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="8dp"
                 android:hint="@string/code_small"
                 app:boxCornerRadiusBottomEnd="8dp"
                 app:boxCornerRadiusBottomStart="8dp"
@@ -295,7 +298,7 @@
                 app:boxStrokeColor="@color/tf_give_attendance_style"
                 app:boxStrokeWidth="1.6dp"
                 app:hintTextColor="@color/black"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/gl_v70"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btn_see_attendance_list">
 
@@ -315,23 +318,224 @@
             <Button
                 android:id="@+id/btn_set"
                 style="?android:attr/borderlessButtonStyle"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginEnd="24dp"
-                android:layout_marginBottom="40dp"
                 android:background="@drawable/check_attendance_list"
                 android:fontFamily="@font/nunito_medium"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:text="@string/set"
                 android:textAllCaps="false"
+                app:layout_constraintBottom_toBottomOf="@id/tf_code"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/gl_v70"
+                app:layout_constraintTop_toTopOf="@id/tf_code"
+                tools:ignore="UnusedAttribute" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tf_latitude"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="8dp"
+                android:hint="latitude"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxStrokeColor="@color/tf_give_attendance_style"
+                app:boxStrokeWidth="1.6dp"
+                app:hintTextColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@id/gl_v33"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tf_code">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_latitude"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito_light"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="2dp"
+                    android:scrollHorizontally="true"
+                    android:textCursorDrawable="@null" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_latitude"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/nunito_medium"
+                android:textSize="12sp"
+                android:maxLines="1"
+                app:layout_constraintBottom_toTopOf="@id/tf_latitude"
+                app:layout_constraintEnd_toEndOf="@id/tf_latitude"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="22.052957" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tf_longitude"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="8dp"
+                android:hint="longitude"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxStrokeColor="@color/tf_give_attendance_style"
+                app:boxStrokeWidth="1.6dp"
+                app:hintTextColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@id/gl_v66"
+                app:layout_constraintStart_toEndOf="@id/gl_v33"
+                app:layout_constraintTop_toBottomOf="@id/tf_code">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_longitude"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:fontFamily="@font/nunito_light"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="2dp"
+                    android:scrollHorizontally="true"
+                    android:textCursorDrawable="@null" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_longitude"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/nunito_medium"
+                android:textSize="12sp"
+                android:maxLines="1"
+                app:layout_constraintBottom_toTopOf="@id/tf_longitude"
+                app:layout_constraintEnd_toEndOf="@id/tf_longitude"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@id/gl_v33"
+                tools:text="88.078008" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tf_radius"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="24dp"
+                android:hint="radius"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxStrokeColor="@color/tf_give_attendance_style"
+                app:boxStrokeWidth="1.6dp"
+                app:hintTextColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/gl_v66"
+                app:layout_constraintTop_toBottomOf="@id/tf_code">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_radius"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:fontFamily="@font/nunito_light"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="2dp"
+                    android:scrollHorizontally="true"
+                    android:textCursorDrawable="@null" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_radius"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/nunito_medium"
+                android:textSize="12sp"
+                android:maxLines="1"
+                app:layout_constraintBottom_toTopOf="@id/tf_radius"
+                app:layout_constraintEnd_toEndOf="@id/tf_radius"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@id/gl_v66"
+                tools:text="100" />
+
+            <Button
+                android:id="@+id/btn_set_location"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="64dp"
+                android:background="@drawable/check_attendance_list"
+                android:fontFamily="@font/nunito_medium"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="set location"
+                android:textAllCaps="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tf_code"
-                app:layout_constraintVertical_bias=".0"
+                app:layout_constraintTop_toBottomOf="@id/tf_latitude"
+                app:layout_constraintVertical_bias="0"
                 tools:ignore="UnusedAttribute" />
+
+            <TextView
+                android:id="@+id/tv_auto_detect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/nunito_bold"
+                android:text="auto detect"
+                android:textColor="@color/blue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_set_location" />
+
+            <View
+                android:id="@+id/v_auto_detect"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/gl_v70"
+                app:layout_constraintTop_toBottomOf="@id/btn_set_location" />
+
+            <ProgressBar
+                android:id="@+id/pb_auto_detect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminateTint="@color/blue"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_v33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".33" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/gl_v50"
@@ -339,6 +543,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent=".5" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_v66"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".66" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/gl_v70"

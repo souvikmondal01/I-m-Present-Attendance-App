@@ -26,11 +26,11 @@ class StudentCheckAttendanceActivity : AppCompatActivity() {
         ivClose.setOnClickListener {
             finish()
         }
+
     }
 
     private fun setUpRecycleView(cl: String, recyclerView: RecyclerView) {
-        val collection = db.collection(cl)
-        val query = collection.orderBy("time", Query.Direction.DESCENDING)
+        val query = db.collection(cl).orderBy("time", Query.Direction.DESCENDING)
         val recyclerViewOptions =
             FirestoreRecyclerOptions.Builder<StudentAttendance>()
                 .setQuery(query, StudentAttendance::class.java).build()
