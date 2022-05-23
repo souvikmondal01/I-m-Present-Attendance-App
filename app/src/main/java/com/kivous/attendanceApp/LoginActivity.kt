@@ -1,8 +1,10 @@
 package com.kivous.attendanceApp
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.View
@@ -14,6 +16,8 @@ import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
     private var isShowPass = false
+
+    @SuppressLint("HardwareIds")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -28,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
         val pbLogin: ProgressBar = findViewById(R.id.pb_login)
         val ivEye: ImageView = findViewById(R.id.iv_eye)
         val forgotPass: TextView = findViewById(R.id.tv_forgot_password)
+
 
         auth = FirebaseAuth.getInstance()
         val token = getSharedPreferences("username", Context.MODE_PRIVATE)
@@ -44,6 +49,11 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
+
+        val androidId = Settings.Secure.getString(
+            this.contentResolver,
+            Settings.Secure.ANDROID_ID
+        )
 
         btnLogin.setOnClickListener {
             when {
@@ -69,12 +79,27 @@ class LoginActivity : AppCompatActivity() {
                                         .addOnSuccessListener { t ->
                                             when (t.getString("student")) {
                                                 "1" -> {
-                                                    val intent =
-                                                        Intent(
+                                                    if (t.get("android_id") == androidId) {
+                                                        val intent =
+                                                            Intent(
+                                                                this,
+                                                                StudentDashboardActivity::class.java
+                                                            )
+                                                        startActivity(intent)
+
+                                                        val editor = token.edit()
+                                                        editor.putString("login_email", currentUser)
+                                                        editor.apply()
+                                                        finishAffinity()
+                                                    } else {
+                                                        Toast.makeText(
                                                             this,
-                                                            StudentDashboardActivity::class.java
+                                                            "you are not registered with this device",
+                                                            Toast.LENGTH_SHORT
                                                         )
-                                                    startActivity(intent)
+                                                            .show()
+                                                    }
+
                                                 }
                                                 "0" -> {
                                                     val intent =
@@ -83,17 +108,20 @@ class LoginActivity : AppCompatActivity() {
                                                             TeacherDashboardActivity::class.java
                                                         )
                                                     startActivity(intent)
+                                                    val editor = token.edit()
+                                                    editor.putString("login_email", currentUser)
+                                                    editor.apply()
+                                                    finishAffinity()
                                                 }
                                                 else -> {
-                                                    val intent =
-                                                        Intent(this, LoginActivity::class.java)
-                                                    startActivity(intent)
+                                                    Toast.makeText(
+                                                        this,
+                                                        "something went wrong",
+                                                        Toast.LENGTH_SHORT
+                                                    )
+                                                        .show()
                                                 }
                                             }
-                                            val editor = token.edit()
-                                            editor.putString("login_email", currentUser)
-                                            editor.apply()
-                                            finishAffinity()
                                         }
                                 } else {
                                     pbLogin.visibility = View.GONE
