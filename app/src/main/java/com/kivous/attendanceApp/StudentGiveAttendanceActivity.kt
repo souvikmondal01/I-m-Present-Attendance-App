@@ -45,30 +45,30 @@ class StudentGiveAttendanceActivity : AppCompatActivity() {
         getBranchAndSubject(tfBranch, tfSubject)
 
         val currentUser = auth.currentUser!!.uid
-        db.collection("extra_info").document("code").get().addOnSuccessListener { tasks ->
-            val teacherCode = tasks.get("code").toString()
 
-            btnPost.setOnClickListener {
-                val name = etName.text.toString().trim()
-                val roll = etRoll.text.toString().trim()
-                val code = etCode.text.toString().trim()
-                val date = etDate.text.toString().trim()
-                val branch = tfBranch.editableText.toString().trim()
-                val subject = tfSubject.editableText.toString().trim()
-                val currentTime = System.currentTimeMillis()
+        btnPost.setOnClickListener {
+            val name = etName.text.toString().trim()
+            val roll = etRoll.text.toString().trim()
+            val code = etCode.text.toString().trim()
+            val date = etDate.text.toString().trim()
+            val branch = tfBranch.editableText.toString().trim()
+            val subject = tfSubject.editableText.toString().trim()
+            val currentTime = System.currentTimeMillis()
 
-                if (etDate.text.isEmpty()) {
-                    etDate.error = "select date"
-                } else if (etName.text.isEmpty()) {
-                    etName.error = "enter name"
-                } else if (etRoll.text.isEmpty()) {
-                    etRoll.error = "enter roll"
-                } else if (tfBranch.text.isEmpty()) {
-                    tfBranch.error = "select branch"
-                } else if (tfSubject.text.isEmpty()) {
-                    tfSubject.error = "select subject"
-                } else {
-                    if (code == teacherCode) {
+            if (etDate.text.isEmpty()) {
+                etDate.error = "select date"
+            } else if (etName.text.isEmpty()) {
+                etName.error = "enter name"
+            } else if (etRoll.text.isEmpty()) {
+                etRoll.error = "enter roll"
+            } else if (tfBranch.text.isEmpty()) {
+                tfBranch.error = "select branch"
+            } else if (tfSubject.text.isEmpty()) {
+                tfSubject.error = "select subject"
+            } else {
+                db.collection("extra_info").document("code").get().addOnSuccessListener { tasks ->
+                    val subjectCode = tasks.get(subject).toString()
+                    if (code == subjectCode) {
                         val info = hashMapOf(
                             "name" to name,
                             "roll" to roll,
@@ -120,7 +120,7 @@ class StudentGiveAttendanceActivity : AppCompatActivity() {
                                 val lat2 = t.get("latitude").toString().toDouble()
                                 val long2 = t.get("longitude").toString().toDouble()
                                 val radius = t.get("radius").toString().toDouble()
-                                if (isInCampus(lat2, long2, lat, long, radius)) {
+                                if (isInClass(lat2, long2, lat, long, radius)) {
                                     btnPost.visibility = View.VISIBLE
                                 } else {
                                     btnPost.visibility = View.GONE
@@ -143,9 +143,8 @@ class StudentGiveAttendanceActivity : AppCompatActivity() {
                     Toast.makeText(this, "null location", Toast.LENGTH_SHORT)
                         .show()
                 }
-
-
             }
+
     }
 
     private fun getInfo(name: EditText, roll: EditText, branch: EditText, currentUser: String) {
@@ -155,7 +154,6 @@ class StudentGiveAttendanceActivity : AppCompatActivity() {
             branch.setText(tasks.get("branch2").toString())
         }
     }
-
 
     private fun getBranchAndSubject(branch: AutoCompleteTextView, subject: AutoCompleteTextView) {
         db.collection("extra_info")
@@ -185,7 +183,7 @@ class StudentGiveAttendanceActivity : AppCompatActivity() {
         return sqrt(distance)
     }
 
-    private fun isInCampus(
+    private fun isInClass(
         setLat: Double,
         setLong: Double,
         yourLat: Double,

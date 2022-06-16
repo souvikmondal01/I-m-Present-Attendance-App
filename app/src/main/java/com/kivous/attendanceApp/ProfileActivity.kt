@@ -85,6 +85,7 @@ class ProfileActivity : AppCompatActivity() {
             dob.setText(tasks.get("dob").toString())
             email.setText(tasks.get("email").toString())
         }
+
         swipeLayout.setOnRefreshListener {
             db.collection("users").document(currentUser).get().addOnSuccessListener { tasks ->
                 name.setText(tasks.get("name").toString())

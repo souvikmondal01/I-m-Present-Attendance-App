@@ -14,7 +14,6 @@
         android:focusable="true"
         android:focusableInTouchMode="true">
 
-
         <ImageView
             android:id="@+id/iv_back_arrow"
             android:layout_width="wrap_content"
@@ -84,7 +83,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_view" />
-
 
         <EditText
             android:id="@+id/et_password"
@@ -184,7 +182,6 @@
             android:id="@+id/pb_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:elevation="4dp"
             android:indeterminateTint="@color/purple_800"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -224,14 +221,12 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent=".1" />
 
-
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_v25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent=".25" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

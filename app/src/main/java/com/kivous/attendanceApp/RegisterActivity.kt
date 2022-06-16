@@ -24,10 +24,8 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
         window.statusBarColor = ContextCompat.getColor(this, R.color.purple_800)
 
-        val ivBackArrow: ImageView = findViewById(R.id.iv_back_arrow)
         val vBackArrow: View = findViewById(R.id.v_back_arrow)
         val ivWhiteBackground: ImageView = findViewById(R.id.iv_white_background)
-        val tvLogin: TextView = findViewById(R.id.tv_login)
         val vLogin: View = findViewById(R.id.v_login)
         val btnStudentRegister: Button = findViewById(R.id.btn_student_register)
         val etEmail: EditText = findViewById(R.id.et_email)
@@ -39,13 +37,7 @@ class RegisterActivity : AppCompatActivity() {
         val ivEye: ImageView = findViewById(R.id.iv_eye)
         val ivLogo: ImageView = findViewById(R.id.iv_logo)
 
-        ivBackArrow.setOnClickListener {
-            finish()
-        }
         vBackArrow.setOnClickListener {
-            finish()
-        }
-        tvLogin.setOnClickListener {
             finish()
         }
         vLogin.setOnClickListener {
@@ -147,10 +139,15 @@ class RegisterActivity : AppCompatActivity() {
                                         if (task2.isSuccessful) {
                                             val currentUser = auth.currentUser!!.uid
                                             pbRegister.visibility = View.GONE
-                                            if (etRoll.text.toString() == "hitteacher") {
-                                                users.document(currentUser).set(user2)
-                                            } else {
-                                                users.document(currentUser).set(user)
+                                            db.collection("extra_info").document(
+                                                "teacher_login"
+                                            ).get().addOnSuccessListener { t ->
+                                                val teacherLoginCode = t.get("code")
+                                                if (etRoll.text.toString() == teacherLoginCode) {
+                                                    users.document(currentUser).set(user2)
+                                                } else {
+                                                    users.document(currentUser).set(user)
+                                                }
                                             }
                                             startActivity(
                                                 Intent(

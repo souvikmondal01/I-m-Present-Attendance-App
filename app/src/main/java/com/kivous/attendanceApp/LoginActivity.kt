@@ -33,18 +33,15 @@ class LoginActivity : AppCompatActivity() {
         val ivEye: ImageView = findViewById(R.id.iv_eye)
         val forgotPass: TextView = findViewById(R.id.tv_forgot_password)
 
-
         auth = FirebaseAuth.getInstance()
         val token = getSharedPreferences("username", Context.MODE_PRIVATE)
 
         vBackArrow.setOnClickListener {
             finish()
         }
-
         ivWhiteBackground.setOnClickListener {
             closeKeyBoard()
         }
-
         vRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
@@ -94,7 +91,7 @@ class LoginActivity : AppCompatActivity() {
                                                     } else {
                                                         Toast.makeText(
                                                             this,
-                                                            "you are not registered with this device",
+                                                            "You are not registered with this device",
                                                             Toast.LENGTH_SHORT
                                                         )
                                                             .show()
@@ -108,6 +105,7 @@ class LoginActivity : AppCompatActivity() {
                                                             TeacherDashboardActivity::class.java
                                                         )
                                                     startActivity(intent)
+
                                                     val editor = token.edit()
                                                     editor.putString("login_email", currentUser)
                                                     editor.apply()
@@ -176,8 +174,8 @@ class LoginActivity : AppCompatActivity() {
         }
         showPassword(isShowPass, etPassword, ivEye)
 
-    }
 
+    }
 
     private fun closeKeyBoard() {
         val view = this.currentFocus
@@ -197,6 +195,5 @@ class LoginActivity : AppCompatActivity() {
         }
         et.setSelection(et.text.toString().length)
     }
-
 
 }
