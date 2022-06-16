@@ -38,6 +38,7 @@ class TeacherTakeAttendanceActivity : AppCompatActivity() {
         val etLong: EditText = findViewById(R.id.et_longitude)
         val etRad: EditText = findViewById(R.id.et_radius)
         val btnSetLocation: Button = findViewById(R.id.btn_set_location)
+        val codeStill: TextView = findViewById(R.id.tv_code_still)
 
         ivClose.setOnClickListener {
             finish()
@@ -113,13 +114,25 @@ class TeacherTakeAttendanceActivity : AppCompatActivity() {
 
         setCode.setOnClickListener {
             val code = etCode.text.toString().trim()
-            if (code.isNotEmpty()) {
-                val codeHash = hashMapOf("code" to code)
-                db.collection("extra_info").document("code").set(codeHash)
-            } else {
+            val subject = tfSubject.editableText.toString().trim()
+            if (subject.isEmpty()) {
+                tfSubject.error = "select subject"
+            } else if (code.isEmpty()) {
                 etCode.error = "enter code"
+            } else {
+                val codeHash = hashMapOf(subject to code)
+                db.collection("extra_info").document("code").update(codeHash as Map<String, Any>)
+                getCode(subject)
             }
-            getCode()
+        }
+
+        codeStill.setOnClickListener {
+            val subject = tfSubject.editableText.toString().trim()
+            if (subject.isEmpty()) {
+                tfSubject.error = "select subject"
+            } else {
+                getCode(subject)
+            }
         }
 
         btnSetLocation.setOnClickListener {
@@ -137,7 +150,6 @@ class TeacherTakeAttendanceActivity : AppCompatActivity() {
 
 
         swipeLayout.setOnRefreshListener {
-            getCode()
             getLocationInfo()
             setLocationToEditText(etLat, etLong, etRad)
             getBranchAndSubject(tfBranch, tfSubject)
@@ -169,7 +181,6 @@ class TeacherTakeAttendanceActivity : AppCompatActivity() {
                 }
         }
 
-        getCode()
         getBranchAndSubject(tfBranch, tfSubject)
         setLocationToEditText(etLat, etLong, etRad)
 
@@ -195,11 +206,11 @@ class TeacherTakeAttendanceActivity : AppCompatActivity() {
         }
     }
 
-    private fun getCode() {
+    private fun getCode(subject: String) {
         val codeCollection = db.collection("extra_info")
         codeCollection.document("code").get().addOnSuccessListener { tasks ->
             val tvCode: TextView = findViewById(R.id.tv_code)
-            tvCode.text = tasks.get("code").toString()
+            tvCode.text = tasks.get(subject).toString()
         }
     }
 

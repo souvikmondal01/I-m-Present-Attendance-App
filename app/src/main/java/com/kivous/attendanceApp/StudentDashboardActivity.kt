@@ -34,11 +34,9 @@ class StudentDashboardActivity : AppCompatActivity(), EasyPermissions.Permission
         vBack.setOnClickListener {
             finish()
         }
-
         vAccount.setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
-
         ivGiveAttendance.setOnClickListener {
             startActivity(Intent(this, StudentGiveAttendanceActivity::class.java))
         }
@@ -49,7 +47,6 @@ class StudentDashboardActivity : AppCompatActivity(), EasyPermissions.Permission
         requestPermission()
 
     }
-
 
     private fun requestPermission() {
         if (PermissionUtility.hasLocationPermissions(applicationContext)) {

@@ -5,16 +5,16 @@ import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.EditText
-import android.widget.ProgressBar
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.firebase.auth.FirebaseAuth
 import java.util.*
+
 
 class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,8 +33,7 @@ class ProfileActivity : AppCompatActivity() {
         val email: EditText = findViewById(R.id.et_email)
         val vUpdate: View = findViewById(R.id.v_update)
         val pb: ProgressBar = findViewById(R.id.pb_profile)
-        val branchHide: AutoCompleteTextView = findViewById(R.id.tf_branch_hide)
-        val studentHide: AutoCompleteTextView = findViewById(R.id.tf_student_hide)
+        val swipeLayout: SwipeRefreshLayout = findViewById(R.id.swipeLayout)
 
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser!!.uid
@@ -51,26 +50,30 @@ class ProfileActivity : AppCompatActivity() {
             val uniroll2 = uniroll.text.toString().trim()
             val roll2 = roll.text.toString().trim()
             val branch2 = tfBranch.text.toString().trim()
-            val branchH = branchHide.text.toString().trim()
             val gender2 = tfGender.text.toString().trim()
             val dob2 = dob.text.toString().trim()
-            val email2 = email.text.toString().trim()
-            val student = studentHide.text.toString().trim()
 
             val profileInfo = hashMapOf(
                 "name" to name2,
                 "roll" to uniroll2,
                 "classroll" to roll2,
                 "branch2" to branch2,
-                "branch" to branchH,
                 "gender" to gender2,
-                "dob" to dob2,
-                "email" to email2,
-                "student" to student
+                "dob" to dob2
             )
-            db.collection("users").document(currentUser).set(profileInfo).addOnSuccessListener {
+            try {
+                if (isInternetConnection()) {
+                    db.collection("users").document(currentUser)
+                        .update(profileInfo as Map<String, Any>).addOnSuccessListener {
+                            pb.visibility = View.GONE
+                        }
+                }
+            } catch (e: Exception) {
                 pb.visibility = View.GONE
+                Toast.makeText(this, "internet connection is not available", Toast.LENGTH_SHORT)
+                    .show()
             }
+
         }
 
         db.collection("users").document(currentUser).get().addOnSuccessListener { tasks ->
@@ -78,11 +81,22 @@ class ProfileActivity : AppCompatActivity() {
             uniroll.setText(tasks.get("roll").toString())
             roll.setText(tasks.get("classroll").toString())
             tfBranch.setText(tasks.get("branch2").toString())
-            branchHide.setText(tasks.get("branch").toString())
             tfGender.setText(tasks.get("gender").toString())
             dob.setText(tasks.get("dob").toString())
             email.setText(tasks.get("email").toString())
-            studentHide.setText(tasks.get("student").toString())
+        }
+
+        swipeLayout.setOnRefreshListener {
+            db.collection("users").document(currentUser).get().addOnSuccessListener { tasks ->
+                name.setText(tasks.get("name").toString())
+                uniroll.setText(tasks.get("roll").toString())
+                roll.setText(tasks.get("classroll").toString())
+                tfBranch.setText(tasks.get("branch2").toString())
+                tfGender.setText(tasks.get("gender").toString())
+                dob.setText(tasks.get("dob").toString())
+                email.setText(tasks.get("email").toString())
+            }
+            swipeLayout.isRefreshing = false
         }
 
         db.collection("extra_info")
@@ -102,6 +116,12 @@ class ProfileActivity : AppCompatActivity() {
         vLogOut.setOnClickListener {
             logOut(token)
         }
+    }
+
+    private fun isInternetConnection(): Boolean {
+        val connectivityManager =
+            this.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+        return connectivityManager.activeNetworkInfo!!.isConnectedOrConnecting
     }
 
     private fun logOut(token: SharedPreferences) {
@@ -152,6 +172,6 @@ class ProfileActivity : AppCompatActivity() {
         }, year, month, day)
 
         dpd.show()
-
     }
+
 }
