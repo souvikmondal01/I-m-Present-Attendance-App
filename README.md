@@ -14,6 +14,5 @@
 
 ## Student Section
 <img src="images/3_db.jpg" height="500" width="250" hspace="40"><img src="images/3_ga.jpg" height="500" width="250" hspace="40">
-<img src="images/3_np.jpg" height="500" width="250" hspace="40">
-
-<img src="images/3_ca.jpg" height="500" width="250" hspace="40"><img src="images/3_ps.jpg" height="500" width="250" hspace="40">
+<img src="images/3_np.jpg" height="500" width="250" hspace="40"><img src="images/3_ca.jpg" height="500" width="250" hspace="40">
+<img src="images/3_ps.jpg" height="500" width="250" hspace="40">
