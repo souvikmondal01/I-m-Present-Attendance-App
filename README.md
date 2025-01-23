@@ -2,6 +2,8 @@
 
 An Android smart attendance-taking application uses location-based technology to allow students to give their attendance when they are within the designated location range set by the teacher.
 
+#### New Version of This Project: https://github.com/souvikmondal01/Attendance-Room-Android
+
 ## Built With 🛠
 * [Kotlin] - First class and official programming language for Android development.
 * [Material Components for Android] - Modular and customizable Material Design UI components for Android.
